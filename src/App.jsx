@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import bgImage from './assets/background.jpeg';
 
 // ==========================================
 // DATABASE DIDATTICO
@@ -93,7 +94,7 @@ export default function App() {
 
     // Stile globale per lo sfondo a tema romano
     const romanBackgroundStyle = {
-        backgroundImage: `linear-gradient(to bottom, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.98)), url("https://images.unsplash.com/photo-1552314708-8ab40212001c?q=80&w=2000&auto=format&fit=crop")`,
+        backgroundImage: `linear-gradient(to bottom, rgba(15, 23, 42, 0.50), rgba(15, 23, 42, 0.80)), url(${bgImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed'
@@ -326,13 +327,13 @@ export default function App() {
                                     ${card.isMatched ? 'opacity-0 scale-90 invisible' : 'opacity-100 scale-100'}
                                     ${card.isFlipped 
                                         ? 'bg-amber-50 border-amber-600 text-amber-950 rotate-0' 
-                                        : 'bg-slate-800 border-slate-600 text-transparent hover:bg-slate-700 hover:-translate-y-1'
+                                    : 'bg-slate-800 border-slate-600 text-transparent hover:bg-slate-700 hover:-translate-y-1'
                                     }
                                 `}
                             >
                                 {/* Dorso della carta: Immagine e pattern */}
                                 {!card.isFlipped && (
-                                    <div className="absolute inset-0 w-full h-full bg-slate-800">
+                                <div className="absolute inset-0 w-full h-full bg-slate-800">
                                         <img 
                                             src="https://images.unsplash.com/photo-1555985202-12975b0235dc?q=80&w=300&auto=format&fit=crop" 
                                             alt="Dorso Classico" 
@@ -342,8 +343,8 @@ export default function App() {
                                                 e.target.nextElementSibling.style.display = 'flex';
                                             }}
                                         />
-                                        <div className="absolute inset-0 hidden items-center justify-center opacity-30 bg-slate-800">
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-slate-400">
+                                    <div className="absolute inset-0 hidden items-center justify-center opacity-30 bg-slate-800">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-slate-400">
                                                 <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
                                                 <circle cx="8.5" cy="8.5" r="1.5"></circle>
                                                 <polyline points="21 15 16 10 5 21"></polyline>
@@ -406,8 +407,3 @@ export default function App() {
         </div>
     );
 }
-
-
-
-
-
