@@ -221,7 +221,7 @@ export default function App() {
             <div className="min-h-screen flex items-center justify-center p-6 font-sans" style={romanBackgroundStyle}>
                 <div className="bg-white rounded-xl shadow-2xl overflow-hidden max-w-lg w-full border border-slate-200">
                     <div className="bg-slate-900 p-6 text-center">
-                        <h1 className="text-3xl font-serif text-amber-400 font-bold tracking-wider">Aenigmata Latina</h1>
+                        <h1 className="text-3xl font-serif text-amber-500 font-bold tracking-[0.2em] uppercase animate-subtle-pulse">Aenigmata Latina</h1>
                         <p className="text-slate-300 mt-2 font-medium">Gioco di Memoria e Sintassi</p>
                     </div>
                     <div className="p-8">
@@ -259,6 +259,15 @@ export default function App() {
                         </button>
                     </div>
                 </div>
+                <style jsx="true">{`
+                    @keyframes subtlePulse {
+                        0%, 100% { text-shadow: 0 2px 4px rgba(0,0,0,0.8), 0 0 10px rgba(245, 158, 11, 0.3); }
+                        50% { text-shadow: 0 2px 4px rgba(0,0,0,0.8), 0 0 25px rgba(245, 158, 11, 0.7); }
+                    }
+                    .animate-subtle-pulse {
+                        animation: subtlePulse 4s ease-in-out infinite;
+                    }
+                `}</style>
             </div>
         );
     }
@@ -269,6 +278,13 @@ export default function App() {
     return (
         <div className="min-h-screen p-4 md:p-8 flex flex-col font-sans" style={romanBackgroundStyle}>
             
+            {/* Titolo del Gioco */}
+            <div className="text-center mb-6 mt-2">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-extrabold text-amber-500 uppercase tracking-[0.25em] animate-subtle-pulse">
+                    Aenigmata Latina
+                </h1>
+            </div>
+
             {/* Header: Punteggi e Turno */}
             <header className="mb-6 flex flex-wrap justify-between items-center bg-slate-800/80 backdrop-blur-sm p-4 md:p-6 rounded-xl shadow-lg border border-slate-700 gap-4">
                 <div className="flex flex-wrap gap-4">
@@ -402,6 +418,13 @@ export default function App() {
                 }
                 .animate-fade-in-up {
                     animation: fadeInUp 0.6s ease-out forwards;
+                }
+                @keyframes subtlePulse {
+                    0%, 100% { text-shadow: 0 2px 4px rgba(0,0,0,0.8), 0 0 10px rgba(245, 158, 11, 0.3); }
+                    50% { text-shadow: 0 2px 4px rgba(0,0,0,0.8), 0 0 25px rgba(245, 158, 11, 0.7); }
+                }
+                .animate-subtle-pulse {
+                    animation: subtlePulse 4s ease-in-out infinite;
                 }
             `}</style>
         </div>
