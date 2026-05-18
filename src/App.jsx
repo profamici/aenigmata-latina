@@ -40,8 +40,8 @@ const PAIRS_DB = [
 
 const SENTENCES_DB = [
     {
-        latin: "Dum agricolae in agris laborant, pueri in horto ludebant et puellae rosarum coronas parabant.",
-        italian: "Mentre i contadini lavorano nei campi, i fanciulli giocavano nel giardino e le ragazze preparavano corone di rose."
+        latin: "Dum agricolae in agris laborabant, pueri in horto ludebant et puellae rosarum coronas parabant.",
+        italian: "Mentre i contadini lavoravano nei campi, i fanciulli giocavano nel giardino e le ragazze preparavano corone di rose."
     },
     {
         latin: "Legati e castris Romanis veniunt et ad oppidum contendunt, sed incolae portas claudunt.",
@@ -332,7 +332,7 @@ export default function App() {
                     </div>
 
                     {/* LIVELLO 2: La Griglia delle Carte */}
-                    <div className={`absolute inset-0 z-10 grid grid-cols-4 md:grid-cols-6 gap-2 md:gap-4 p-2 md:p-4 bg-transparent transition-opacity duration-1000 ${gameState === 'boss' ? 'pointer-events-none' : ''}`}>
+                    <div className={`absolute inset-0 z-10 grid grid-cols-6 gap-2 md:gap-4 p-2 md:p-4 bg-transparent transition-opacity duration-1000 ${gameState === 'boss' ? 'pointer-events-none' : ''}`}>
                         {cards.map((card, index) => (
                             <div 
                                 key={card.id}
@@ -349,11 +349,11 @@ export default function App() {
                             >
                                 {/* Dorso della carta: Immagine e pattern */}
                                 {!card.isFlipped && (
-                                <div className="absolute inset-0 w-full h-full bg-slate-800">
+                                <div className="absolute inset-0 w-full h-full bg-slate-800 flex items-center justify-center">
                                         <img 
                                             src="https://images.unsplash.com/photo-1555985202-12975b0235dc?q=80&w=300&auto=format&fit=crop" 
                                             alt="Dorso Classico" 
-                                            className="w-full h-full object-cover opacity-50 mix-blend-overlay hover:opacity-70 hover:scale-110 transition-all duration-500"
+                                            className="absolute inset-0 w-full h-full object-cover opacity-50 mix-blend-overlay hover:opacity-70 hover:scale-110 transition-all duration-500"
                                             onError={(e) => {
                                                 e.target.style.display = 'none';
                                                 e.target.nextElementSibling.style.display = 'flex';
@@ -365,6 +365,11 @@ export default function App() {
                                                 <circle cx="8.5" cy="8.5" r="1.5"></circle>
                                                 <polyline points="21 15 16 10 5 21"></polyline>
                                             </svg>
+                                        </div>
+                                        <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
+                                            <span className="text-amber-100/90 font-bold text-lg sm:text-xl md:text-2xl drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)] font-serif">
+                                                {String.fromCharCode(65 + (index % 6))}{Math.floor(index / 6) + 1}
+                                            </span>
                                         </div>
                                     </div>
                                 )}
